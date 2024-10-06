@@ -10,12 +10,12 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI pipas;
 
     //clicador
-    public TextMeshProUGUI clicador;
-    public TextMeshProUGUI coste_clicador;
+    public TextMeshProUGUI t_clicador;
+    public TextMeshProUGUI t_coste_clicador;
     public static int numero_clicador = 0;
-    public static float aumento_clicador = 0.1f;
-    public static float aumento_coste_clicador = 1.3f;
-    public static float indice_aumento_coste_clicador = 1.2f; //importante que sea más de 1
+    public static float pps_clicador = 0.1f;
+    public static float coste_clicador = 10f;
+    public static float indice_coste_clicador = 1.75f; //importante que sea más de 1
 
     //granja
 
@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour
     private void ActualizarTexto()
     {
         pipas.text = "Puntos " + Mathf.FloorToInt(Clicable.puntos);
-        clicador.text = "Tienes " + numero_clicador;
-        coste_clicador.text = "Cuesta " + aumento_coste_clicador;
+        t_clicador.text = "Tienes " + numero_clicador;
+        t_coste_clicador.text = "Cuesta " + coste_clicador;
     }
 
     private void Sumar ()
@@ -49,19 +49,19 @@ public class GameManager : MonoBehaviour
 
     private void Clicador()
     {
-        Clicable.puntos += Time.deltaTime * aumento_clicador * numero_clicador;
+        Clicable.puntos += Time.deltaTime * pps_clicador * numero_clicador;
     }
 
     public void AumentoClicador()
     {
-        if (Clicable.puntos > aumento_coste_clicador)
+        if (Clicable.puntos > coste_clicador)
         {
             numero_clicador++;
-            Clicable.puntos -= aumento_coste_clicador;
-            aumento_coste_clicador *= indice_aumento_coste_clicador;
+            Clicable.puntos -= coste_clicador;
+            coste_clicador *= indice_coste_clicador;
 
             //al loro con la de abajo, hacer que no salgan decimales en coste de compra
-            //aumento_coste_clicador = Mathf.FloorToInt(aumento_coste_clicador);
+            coste_clicador = Mathf.FloorToInt(coste_clicador);
         }
     }
 }

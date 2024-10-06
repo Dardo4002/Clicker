@@ -1318,6 +1318,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 409189563}
     - target: {fileID: 1272954988034686804, guid: 8ae77164a1269cc4d8bf5d994044e2d2, type: 3}
+      propertyPath: t_clicador
+      value: 
+      objectReference: {fileID: 2027796491}
+    - target: {fileID: 1272954988034686804, guid: 8ae77164a1269cc4d8bf5d994044e2d2, type: 3}
       propertyPath: textosuma1
       value: 
       objectReference: {fileID: 409189563}
@@ -1327,6 +1331,10 @@ PrefabInstance:
       objectReference: {fileID: 2027796491}
     - target: {fileID: 1272954988034686804, guid: 8ae77164a1269cc4d8bf5d994044e2d2, type: 3}
       propertyPath: coste_clicador
+      value: 
+      objectReference: {fileID: 409189563}
+    - target: {fileID: 1272954988034686804, guid: 8ae77164a1269cc4d8bf5d994044e2d2, type: 3}
+      propertyPath: t_coste_clicador
       value: 
       objectReference: {fileID: 409189563}
     - target: {fileID: 4062873307683409429, guid: 8ae77164a1269cc4d8bf5d994044e2d2, type: 3}

@@ -13,10 +13,10 @@ public class ClickAumentoSuma1 : MonoBehaviour
     // Update is called once per frame
     private void OnMouseDown()
     {
-        if (Clicable.puntos > GameManager.aumento_coste_clicador)
+        if (Clicable.puntos > GameManager.coste_clicador)
         {
             GameManager.numero_clicador++;
-            GameManager.aumento_coste_clicador *= 2;
+            GameManager.coste_clicador *= 2;
         }
     }
 }
