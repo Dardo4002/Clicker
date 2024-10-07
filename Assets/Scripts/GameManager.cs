@@ -9,6 +9,12 @@ public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI pipas;
 
+    //Jugador
+    public TextMeshProUGUI t_jugador;
+    public TextMeshProUGUI t_coste_jugador;
+    public static float coste_mejora_jugador = 10f;
+    public static float indice_coste_mejora_jugador = 1.75f; //importante que sea más de 1
+
     //clicador
     public TextMeshProUGUI t_clicador;
     public TextMeshProUGUI t_coste_clicador;
@@ -38,11 +44,14 @@ public class GameManager : MonoBehaviour
     {
         Sumar();
         ActualizarTexto();
+
     }
 
+    
     private void ActualizarTexto()
     {
         pipas.text = "Puntos " + Mathf.FloorToInt(Clicable.puntos);
+        //CANTIDAD
         //clicador
         t_clicador.text = "Tienes " + numero_clicador;
         t_coste_clicador.text = "Cuesta " + coste_clicador;
@@ -50,8 +59,14 @@ public class GameManager : MonoBehaviour
         //granja
         t_granja.text = "Tienes " + numero_granja;
         t_coste_granja.text = "Cuesta " + coste_granja;
+
+        //MEJORAS
+        //jugador
+        t_jugador.text = "Mejora numero " + Clicable.mejora_jugador;
+        t_coste_jugador.text = "Coste " + coste_mejora_jugador;
     }
 
+    //SUMAS
     private void Sumar ()
     {
         Clicador();
@@ -70,7 +85,7 @@ public class GameManager : MonoBehaviour
 
     public void AumentoClicador()
     {
-        if (Clicable.puntos > coste_clicador)
+        if (Clicable.puntos >= coste_clicador)
         {
             numero_clicador++;
             Clicable.puntos -= coste_clicador;
@@ -83,7 +98,7 @@ public class GameManager : MonoBehaviour
 
     public void AumentoGranja()
     {
-        if (Clicable.puntos > coste_granja)
+        if (Clicable.puntos >= coste_granja)
         {
             numero_granja++;
             Clicable.puntos -= coste_granja;
@@ -91,6 +106,22 @@ public class GameManager : MonoBehaviour
 
             //al loro con la de abajo, hacer que no salgan decimales en coste de compra
             coste_granja = Mathf.FloorToInt(coste_granja);
+        }
+    }
+
+
+
+    //MEJORAS
+    public void AumentoMejoraJugador()
+    {
+        if (Clicable.puntos >= coste_mejora_jugador)
+        {
+            Clicable.mejora_jugador++;
+            Clicable.puntos -= coste_mejora_jugador;
+            coste_mejora_jugador *= indice_coste_mejora_jugador;
+
+            //al loro con la de abajo, hacer que no salgan decimales en coste de compra
+            coste_mejora_jugador = Mathf.FloorToInt(coste_mejora_jugador);
         }
     }
 }
