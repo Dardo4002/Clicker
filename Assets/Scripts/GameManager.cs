@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     
     private void ActualizarTexto()
     {
-        pipas.text = "Puntos " + Mathf.FloorToInt(Clicable.puntos);
+        pipas.text = "" + Mathf.FloorToInt(Clicable.puntos);
 
         //CANTIDAD
         //clicador

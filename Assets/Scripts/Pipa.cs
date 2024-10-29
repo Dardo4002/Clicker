@@ -29,13 +29,13 @@ public class Pipa : MonoBehaviour
         Muerte();
         Angulo();
         Impulso(pito);
-
+        CambioTamanho();
     }
 
     private void Update()
     {
         
-    }
+    } 
 
     //Elimina las pipas después de un tiempo
     void Muerte()
@@ -58,5 +58,11 @@ public class Pipa : MonoBehaviour
         random_impulse_angle_y = Random.Range(-360f, 360f);
 
         pito.AddForce(new Vector2(random_impulse_angle_x, random_impulse_angle_y).normalized * random_impulse, ForceMode2D.Impulse);
+    }
+
+    void CambioTamanho()
+    {
+        float tamanho = Random.Range(0.8f, 1.2f);
+        transform.localScale = new Vector2(tamanho, tamanho);
     }
 }
