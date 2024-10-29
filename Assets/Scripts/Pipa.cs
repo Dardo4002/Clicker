@@ -24,10 +24,12 @@ public class Pipa : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         Rigidbody2D pito = GetComponent<Rigidbody2D>();
         Muerte();
         Angulo();
         Impulso(pito);
+
     }
 
     private void Update()
