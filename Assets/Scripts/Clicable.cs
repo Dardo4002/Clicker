@@ -18,6 +18,7 @@ public class Clicable : MonoBehaviour
         CrearPipa();
     }
 
+    //No te voy a mentir, esto es magia negra de chatgpt xd
     void CrearPipa()
     {
         // Obtener la posición del clic en el mundo
@@ -30,7 +31,6 @@ public class Clicable : MonoBehaviour
         // Calcular la posición local en el objeto
         Vector3 localPosition = transform.InverseTransformPoint(worldPosition);
 
-        Debug.Log($"Clic en el objeto en posición local: {localPosition}");
 
         Instantiate(pipa, localPosition, Quaternion.identity);
     }

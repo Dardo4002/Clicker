@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6854240173374669076}
   - component: {fileID: 7288081165685239406}
   - component: {fileID: 3484529741894619266}
+  - component: {fileID: -2525563943125614257}
   m_Layer: 0
   m_Name: Pipa1
   m_TagString: Untagged
@@ -112,3 +113,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-2525563943125614257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5422249414908385366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a479065ba9e3fd74aa52b89f523c5b92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contador_muerte: 3
+  random_impulse: 0
+  vector_random: {x: 0, y: 0}
+  tamanho: {x: 1, y: 1}
+  random_angle: 0
