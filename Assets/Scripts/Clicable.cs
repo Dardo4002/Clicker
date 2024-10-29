@@ -43,8 +43,22 @@ public class Clicable : MonoBehaviour
         // Calcular la posición local en el objeto
         Vector3 localPosition = transform.InverseTransformPoint(worldPosition);
 
-
-        Instantiate(pipa, localPosition, Quaternion.identity);
+        if (mejora_jugador < 5)
+        {
+            for (int i = 0; i < mejora_jugador + 1; i++)
+            {
+                Instantiate(pipa, localPosition, Quaternion.identity);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 4 + 1; i++)
+            {
+                Instantiate(pipa, localPosition, Quaternion.identity);
+            }
+        }
+        
+        
     }
 
     //Más magia negra de chatgpt
