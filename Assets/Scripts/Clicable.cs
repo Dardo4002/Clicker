@@ -1,11 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Schema;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Clicable : MonoBehaviour
 {
+    //Información
+    [SerializeField] public static int total_pipas = 0;
+
     //cosas de clicable
     [SerializeField] static public float puntos = 0;
     [SerializeField] static public int mejora_jugador = 0;
@@ -15,10 +19,14 @@ public class Clicable : MonoBehaviour
     public Vector2 tamanho_normal = Vector2.one;
     public Vector2 escala_cambio_tamanho = new Vector3(0.5f, 0.5f);
     public float duracion_transicion = 0.1f;
-    private bool transicionando = false;
 
     void Start()
     {
+    }
+
+    private void Update()
+    {
+        
     }
     private void OnMouseDown()
     {
@@ -55,24 +63,22 @@ public class Clicable : MonoBehaviour
             for (int i = 0; i < 4; i++)
             {
                 Instantiate(pipa, localPosition, Quaternion.identity);
+
             }
         }
-        
-        
+
+        total_pipas++;
     }
 
     //Más magia negra de chatgpt
     IEnumerator CambioTamanho()
     {
-        transicionando = true;
 
         //encogimiento
         yield return StartCoroutine(CambioEscala(tamanho_normal, escala_cambio_tamanho, duracion_transicion));
 
         //Crecimiento
         yield return StartCoroutine(CambioEscala(escala_cambio_tamanho, tamanho_normal, duracion_transicion));
-
-        transicionando = false;
     }
 
     IEnumerator CambioEscala(Vector2 desde_escala, Vector2 a_escala, float duracion)
